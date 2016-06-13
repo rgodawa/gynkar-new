@@ -2,18 +2,10 @@
 class Database
 {
     private static $dbHost = 'localhost' ;
-    private static $dbName = 'gynkar-new' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = 'r1798G!2#';
+    private static $dbName = '' ;
+    private static $dbUsername = '';
+    private static $dbUserPassword = '';
    
-    
-    /*
-    private static $dbName = 'my_12975' ;
-    private static $dbHost = '127.0.0.1' ;
-    private static $dbUsername = 'my_12975a';
-    private static $dbUserPassword = 'r1798G!2#';
-    */
-     
     private static $cont  = null;
      
     public function __construct() {
