@@ -25,9 +25,9 @@ $date->add(new DateInterval('P30D'));
 $mymailer 	= new PHPMailer(true);
 $mymailer->CharSet = 'utf-8';
 $mymailer->FromName = 'Gynkar system test';
-//$mymailer->From = 'postmaster@mszsystem-new.rall.pl'; // na serwerze
+//$mymailer->From = ''; // na serwerze
 //$mymailer->Port = 587; // na serwerze
-$mymailer->AddReplyTo('postmaster@mszsystem-new.rall.pl', 'Gynkar system test');
+$mymailer->AddReplyTo('', 'Gynkar system test');
 $mymailer->IsHTML(true);
 
 $db       	= Database::connect();
