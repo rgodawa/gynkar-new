@@ -1,0 +1,322 @@
+html, 
+body{
+    height:100%; 
+    margin:0;
+    padding:0;
+    background:url('img/body.gif') repeat-x;
+    color: #656565;
+}
+
+ 
+#login-form .container-fluid{
+    height:100%;
+    display:table;
+    width: 100%;
+    padding: 0;
+}
+ 
+#login-form .row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+
+.centering {
+    float:none;
+    margin:0 auto;
+}
+
+
+.navbar
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 32px !important;
+}
+
+.navbar-brand {
+    height: 50%;
+}
+
+.navbar-brand > img
+{
+    /*
+    width: 50px;
+    height: 50px;
+    */
+    width: 100%;
+}
+
+.navbar-nav > li > a 
+{ 
+    padding-top: 20px !important; 
+    padding-bottom: 20px !important; 
+}
+
+/* Login form */
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 40%;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.need-help
+{
+    margin-top: 10px;
+}
+.new-account
+{
+    display: block;
+    margin-top: 10px;
+}
+
+/*
+#projects .btn {
+    margin-right: 2px;
+}
+*/
+
+#projects ._myfix {
+    width: 154px !important;
+ }
+
+#projectForm label {
+    font-weight: 400;
+}
+
+#projectForm .btn-group {
+    float: right;
+}
+
+#projectForm .btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#projectForm .products .panel-body {
+    padding-left: 30px;
+}
+
+#projectForm #id_stations .panel-body {
+    padding-left: 60px;
+}
+
+#projectForm .equal{
+    height:100%;
+}
+#projectForm .col-xs-4, .panel{
+    height:100%;
+}
+
+#projectForm #id_stations{
+    margin-top: 20px;
+}
+
+#projectForm textarea {
+    margin: auto;
+    width: 96%;
+    margin-bottom: 10px;
+}
+
+#projectForm .error {
+  color: red;
+}
+
+
+.submit-footer {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.invoicePrint-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;  
+}
+
+.projectForm-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.projectFormEdit-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;  
+}
+
+.productStageForm-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;    
+}
+
+.userForm-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;    
+}
+
+.new-userForm-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;    
+}
+
+
+#userForm label.error { 
+    float: left; 
+    color: red; 
+    padding-top: .5em; 
+    vertical-align: top; 
+    font-weight:bold
+}
+
+.infoTable-width {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%; 
+}
+
+#userForm label {
+    font-weight: 400;
+}
+
+#productStageForm label {
+    font-weight: 400;
+}
+
+#productStageForm textarea {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#productStageForm .panel-stage {
+ margin-left: 14px;
+ margin-right: 14px;
+} 
+
+#projectFormEdit label {
+    font-weight: 400;
+}
+
+.table-vcenter td {
+   vertical-align: middle!important;
+}
+
+img.myDialog {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+}
+
+
+.modal {
+    overflow-y: auto;
+}
+
+.modal-open {
+    overflow:auto;
+}
+
+#addTitle {
+     margin-left:10px;
+}
+
+.red-tooltip + .tooltip > .tooltip-inner {background-color:#FF0000;}
+.red-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#FF0000; }
+
+.green-tooltip + .tooltip > .tooltip-inner {background-color:#00FF00;}
+.green-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#00FF00;}
+
+.blue-tooltip + .tooltip > .tooltip-inner {background-color:#0000FF;}
+.blue-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#0000FF;}
+
+.gray-tooltip + .tooltip > .tooltip-inner {background-color:#f5f5f5;color:#333;}
+.gray-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#f5f5f5;color:#333;}
+
+#invoice_print tr, td {
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.container-button {
+    padding-bottom: 40px;
+}
+
+div.email
+{
+    color: #e0e0e0;
+    font-family: "Lucida Grande", Verdana, sans-serif; 
+    font-weight: normal;
+    font-size: 12px;
+    text-decoration: none;
+}
+div.email-link
+{
+    color: #e0e0e0;
+    font-family: Arial, Verdana, Helvetica, Tahoma;
+    font-weight: bold;
+    font-size: 10px;
+}

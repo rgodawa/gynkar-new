@@ -1,0 +1,92 @@
+<form id='projectFormEdit' class='form-horizontal' autocomplete='off' style='display: none;'>
+	<div class="container-fluid">
+
+	<div class="row">
+	<div class='form-group'>
+	    <label class='col-md-2 control-label'>Id projektu</label>
+	    <div class='col-md-2'>
+	        <input id='id' type='text' class='form-control' disabled='disabled' />
+	    </div>
+	</div>
+	</div>
+
+	<div class="row">
+	<div class='form-group'>
+			<label class='col-md-2 control-label'>Tytuł</label>
+			<div class='col-md-6'>
+				<select id='title_id' class='form-control' name='title'>
+				<?php mytitle_option($mytitles) ?>
+				</select>
+			</div>
+			<label class='col-md-2 control-label'>Numer</label>
+			<div class='col-md-2'>
+				<div id='title_number' class='input-group date'>
+	    	    <input placeholder='99/99' type='text' class='form-control' required />
+	    	    <div class='input-group-addon'><i class='glyphicon glyphicon-pushpin'></i></div>
+	    		</div>
+	    	</div>
+	</div>
+
+	<div class="row">
+	<div class='col-md-12'>
+	<div class="panel panel-default equal">
+		<div class="panel-heading text-center">Status projektu</div>
+		<div id="project_status" class="panel-body">
+			<div class='col-md-3'></div>
+			<label class="radio-inline col-md-2"><input name="status" value="1" type="radio">Otwarty</label>
+			<label class="radio-inline col-md-2"><input name="status" value="2" type="radio">Zrealizowany</label>
+			<label class="radio-inline col-md-2"><input name="status" value="3" type="radio">Zamknięty</label>
+			<div class='col-md-3'></div>
+		</div>
+	</div>
+  	</div>
+  	</div>	
+
+	<div class="row">
+	<div class='col-md-12'>
+	<div class="panel panel-default equal">
+  		<div class="panel-heading text-center">Wysyłka powiadomień do wybranych osób</div>
+  		<div id='users_notice' class="panel-body">
+  			<?php myuser_checboxes($myusers, false) ?>
+  		</div>
+  	</div>
+  	</div>
+  	</div>
+
+  	
+	<div class='submit-footer'></div>
+	<div class="container-fluid container-button">
+	<div class='row-fluid'>
+	<div class="col-md-6 text-right"></div>
+	<div class="col-md-6 text-right">
+	<button id='cancel' type="reset" class='btn btn-default' style='margin-right:30px;'>Anuluj</button>
+    <button id='save'   type='submit' class='btn btn-primary' disabled>Zapisz</button>
+    </div>
+	</div>
+	</div>
+
+	</div>
+	</div>
+</form>
+<script type='text/javascript'>
+	var options_title_number={
+        format: 'mm/yy',
+        viewMode: 'months',
+        minViewMode: 'months',
+        container: 'body',
+        autoclose: true,
+        language: 'xy'
+    };
+    $('#title_number').datepicker(options_title_number).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
+	$(document).ready(function() {
+		var role_id = <?php echo $user['role_id'] ?>;
+		if (role_id == 4) {
+			$('#projectFormEdit input').prop('disabled', true);
+			$('#projectFormEdit select').prop('disabled', true);
+			$('#projectFormEdit input[type=radio]').prop('disabled', true);
+		}
+	});
+</script>

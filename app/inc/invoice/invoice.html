@@ -1,0 +1,120 @@
+<div id="invoice_print" class="container-fluid" style='display:none;' >
+	<center><table width="800" cellpadding="20">
+	<tr>
+		<td id="invoice_number" colspan="2" width="100%" align="center">
+			<h2>Faktura VAT nr&nbsp;<span></span></h2>
+			<div>oryginał / kopia</div></br></br>
+		</td>
+	</tr>
+
+	<tr> 
+		<td id="date_of_issue" width="50%" align="left">Data wystawienia: <span></span></td>
+		<td id="date_of_sale" width="50%" align="left">Data sprzedaży: <span></span></td>	
+	</tr>
+	<tr>
+		<td id="date_termin" width="50%" align="left" valign="top">
+			<u>Sprzedawca:</u><br>
+			Gynkar, Michał Łojewski<br>
+			ul. Chełmska 21, 00-724 Warszawa<br>
+			NIP: 525-112-04-31<br>
+			<br>
+			<u>Forma płatności:</u><br>
+			Przelew  - Bank Zachodni WBK SA <br>
+			Rachunek nr: 98 1090 2590 0000 0001 3255 0479 <br>
+			<b>Data płatności: <span></span></b><br>
+		</td>
+		<td width="50%" align="left" valign="top">
+			<u>Nabywca:</u><br>
+			Media Service Zawada sp. z o.o. <br>
+			Al.. Stanów Zjednoczonych 51 04-028 Warszawa <br>
+			NIP: 113-00-94-477 <br>
+		</td>
+	</tr>
+	</table>
+	<center><table width="800" border="1" style="border-collapse: collapse;">
+	<tr>
+		<td width="400" align="center" valign="top">Nazwa Towaru</td>
+		<td width="100" align="center" valign="top">Wartość bez VAT (PLN)</td>
+		<td width="100" align="center" valign="top">VAT (%)</td>
+		<td width="100" align="center" valign="top">Kwota VAT (PLN)</td>
+		<td width="100" align="center" valign="top">Wartość z VAT (PLN)</td>
+	</tr>
+	
+	<tr>
+		<td id="description" width="400" height="100" align="center" valign="center"><span><span></td>
+		<td width='100' align='right' valign='center'><span class="unit_price"><span></td>
+		<td class="tax_rate" width="100" align="center" valign="center">23%</td>
+		<td class="tax_amount" width="100" align="right" valign="center">899,30</td>
+		<td class="total" width="100" align="right" valign="center">4 809,30</td>
+	</tr>
+
+	<tr>
+		<td width="400" align="right" valign="top">Razem:</td>
+		<td class="unit_price" width="100" align="right" valign="top"></td>
+		<td width="100" align="center" valign="top">x</td>
+		<td class="tax_amount" width="100" align="right" valign="top"></td>
+		<td class="total" width="100" align="right" valign="top">4 809,30</td>
+	</tr>
+	<tr>
+		<td width="400" align="right" valign="top" rowspan="4">W tym:</td>	
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="center" valign="top">zw</td>
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="right" valign="top">0,00</td>
+	</tr>
+	<tr>
+		<td class="unit_price" width="100" align="right" valign="top"></td>
+		<td class="tax_rate" width="100" align="center" valign="top">23%</td>
+		<td class="tax_amount" width="100" align="right" valign="top"></td>
+		<td class="total" width="100" align="right" valign="top"></td>
+	</tr>
+	<tr>
+
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="center" valign="top">8%</td>
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="right" valign="top">0,00</td>
+	</tr>
+	<tr>
+		
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="center" valign="top">0%</td>
+		<td width="100" align="right" valign="top">0,00</td>
+		<td width="100" align="right" valign="top">0,00</td>
+	</tr>
+	</table>
+	<br>
+	<table width="100%">
+	<tr>
+		<td width="50%" align="right" valign="top"><h3>Do zapłaty:&nbsp;</h3></td>			
+		<td width="50%" align="left" valign="top"><h3><span class="total"></span> PLN</h3></td>
+	</tr>
+
+	<tr>
+		<td width="50%" align="right" valign="bottom"><h3>Słownie:&nbsp;</h3></td>			
+		<td width="50%" align="left" valign="middle"><span class="number_to_words"></span></td>
+	</tr>		
+	</table>
+	<br>
+	<br>
+	<br>
+	<center><table width="800" border="0">
+	<tr>
+		<td width="100"></td>
+		<td width="250" valign="bottom"><center>Nazwisko i podpis osoby uprawnionej do otrzymania faktury</td>
+		<td width="100"></td>
+		<td width="250" valign="top"><center>Michał Łojewski<br><br><br><br>Nazwisko i podpis osoby uprawnionej do wystawienia faktury</td>
+		<td width="100"></td>
+	</tr>
+	</table>
+	<div class='no-print'>
+	<div class='submit-footer'></div>
+	<div class='col-md-8'></div>
+    	<div class='col-md-2'>
+    		<button type='button' class='btn btn-default pull-right' data-dismiss='modal'>Anuluj</button>
+    	</div>
+    	<div class='col-md-2'>
+    		<button id='invPrint' class='btn btn-primary pull-right'>Drukuj</button>
+    	</div>
+	</div>
+</div>

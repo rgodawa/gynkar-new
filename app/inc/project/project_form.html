@@ -1,0 +1,354 @@
+<form id='projectForm' class='form-horizontal' autocomplete='off' style='display: none;'>
+	<div class="container-fluid">
+
+		<div class="container-fluid container-button">
+		<div class='row-fluid'>
+		<div class="col-md-6 text-right"></div>
+		<div class="col-md-6 text-right">
+		<button id='cancelProjectBis' type='button' type="reset" class='btn btn-default' style='margin-right:30px;'>Anuluj</button>
+    	<button id='saveProjectBis' type='submit' class='btn btn-primary' disabled>Zapisz</button>
+    	</div>
+		</div>
+		</div>
+					
+		<div class="row-fluid">
+			<div class='form-group'>
+				<label class='col-md-2 control-label' style='text-align: left;'>Tytuł projektu</label>
+				<div class='col-md-6'>
+					<select id='title_id' class='form-control' name='title'>
+					<?php mytitle_option($mytitles) ?>
+					</select>
+				</div>
+				<label class='col-md-2 control-label'>Numer</label>
+				<div class='col-md-2'>
+					<div id='title_number' class='input-group date'>
+			        <input placeholder='99/99' type='text' class='form-control' required />
+			        <div class='input-group-addon'><i class='glyphicon glyphicon-pushpin'></i></div>
+			    	</div>
+			    </div>
+			</div>
+		</div>
+
+	<div class="row-fluid">
+	<div class='form-group'>
+		<div class='col-md-5'>
+			<div class="panel panel-default products">
+  				<div class="panel-heading">Spot reklamowy</div>
+  				<div class="panel-body">
+
+  					<div class='col-md-3'>
+				    <label class='radio'>
+            	        <input name='spot_radio' value='0' type='radio' checked>Brak
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='spot_radio' value='1' type='radio'>2D
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='spot_radio' value='2' type='radio'>3D
+            	    </label>
+            		</div>
+
+
+            		<div class='col-md-9'>
+        			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data emisji</label>
+	    				<div class='col-md-7'>
+
+        				<div id='spot_date_of_issue' name='spot' class='input-group date'>
+	        			<input placeholder='RRRR-MM-DD' name='spot' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+	
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data bety</label>
+	    				<div class='col-md-7'>
+        				
+        				<div id='spot_date_of_beta' name='spot' class='input-group date'>
+	        			<input name='spot' placeholder='RRRR-MM-DD' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label'>Czas trwania</label>
+	    				<div class='col-md-7'>
+
+        				<div class='input-group'>
+	        			<input id='spot_length' name='spot' placeholder='sekundy' type='number' class='form-control' />
+	        			<div class='input-group-addon'><i name='spot' class='glyphicon glyphicon-time'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+        			</div>
+	    			</div>
+	    			<textarea id="spot_comments" class="form-control" name='spot' placeholder='Uwagi' rows="5"></textarea>
+        	</div>
+		</div>
+		<div class='col-md-7'>
+			<div class="panel panel-default">
+  				<div class="panel-heading text-center">Emisja w stacjach</div>
+  				<div id='spot_stations' class="panel-body">
+  					<?php mystation_checboxes($mystations, 'spot_station') ?>
+  				</div>
+  				<div id='spot_stations_error' class='text-center'></div>
+  			</div>
+  		</div>
+ 	</div>
+	</div>
+
+
+	<div class="row-fluid">
+	<div class='form-group'>
+		<div class='col-md-5'>
+			<div id='billboard_panel' class="panel panel-default products">
+  				<div class="panel-heading">Billboard sponsorski</div>
+  				<div class="panel-body">
+
+  					<div class='col-md-3'>
+            	    <label class='radio'>
+            	        <input id='billboard_0' name='billboard_radio' value='0' type='radio' checked>Brak
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='billboard_radio' value='3' type='radio'>Nowy
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='billboard_radio' value='4' type='radio'>Kolejny
+            	    </label>
+            		</div>
+
+            		<div class='col-md-9'>
+        			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data emisji</label>
+	    				<div class='col-md-7'>
+
+        				<div id='billboard_date_of_issue' name='billboard' class='input-group date'>
+	        			<input name='billboard' placeholder='RRRR-MM-DD' type='text' class='form-control' />
+	    				<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+	
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data bety</label>
+	    				<div class='col-md-7'>
+
+        				<div id='billboard_date_of_beta' name='billboard' class='input-group date'>
+	        			<input name='billboard' placeholder='RRRR-MM-DD' type='text' class='form-control' />
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+
+
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label'>Czas trwania</label>
+	    				<div class='col-md-7'>
+
+        				<div class='input-group'>
+	        			<input id='billboard_length' name='billboard' placeholder='sekundy' type='number' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+	    			</div>
+        			</div>
+        		<textarea id="billboard_comments" class="form-control" name='billboard' placeholder='Uwagi' rows="5"></textarea>
+        	</div>
+		</div>
+		<div class='col-md-7'>
+		<div class="panel panel-default">
+  				<div class="panel-heading text-center">Emisja w stacjach</div>
+  				<div id='billboard_stations' class="panel-body">
+  					<?php mystation_checboxes($mystations, 'billboard_station') ?>
+  				</div>
+  				<div id='billboard_stations_error' class='text-center'></div>
+  		</div>
+  		</div>
+	</div>
+	</div>
+
+	<div class="row-fluid">
+	<div class='form-group '>
+		<div class='col-md-5'>
+			<div id='youtube_panel' class="panel panel-default products">
+  				<div class="panel-heading">Film na YouTube</div>
+  				<div class="panel-body">
+  				<div class='col-md-3'>
+	
+            	     <label class='radio'>
+            	        <input id='youtube_0' name='youtube_radio' value='0' type='radio' checked>Brak
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='youtube_radio' value='5' type='radio'>Making of
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='youtube_radio' value='6' type='radio'>Gadżet
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='youtube_radio' value='7' type='radio'>Recenzja
+            	    </label>
+        		</div>
+
+            	<div class='col-md-9'>
+        			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data emisji</label>
+	    				<div class='col-md-7'>
+
+        				<div id='youtube_date_of_issue' name='youtube' class='input-group date'>
+	        			<input name='youtube' placeholder='RRRR-MM-DD' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+					
+	    			<div class='form-group' style='display:none'>
+	    				<label class='col-md-5 control-label date'>Data bety</label>
+	    				<div class='col-md-7'>
+
+        				<div id='youtube_date_of_beta' name='youtube' class='input-group date'>
+	        			<input name='youtube' placeholder='RRRR-MM-DD' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+
+	    			<div class='form-group' style='display:none'>
+	    				<label class='col-md-5 control-label'>Czas trwania</label>
+	    				<div class='col-md-7'>
+
+        				<div class='input-group'>
+	        			<input id='youtube_length' name='youtube' placeholder='sekundy' type='number' class='form-control' />
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+					
+
+	    		</div>
+
+        	</div>
+        	<textarea id="youtube_comments" class="form-control" name='youtube' placeholder='Uwagi' rows="5"></textarea>
+		</div>
+
+
+	</div>
+
+	</div>
+
+	<div class='submit-footer'></div>
+	<div class="container-fluid container-button">
+	<div class='row-fluid'>
+	<div class="col-md-6 text-right"></div>
+	<div class="col-md-6 text-right">
+	<button id='cancelProject' type='button' type="reset" class='btn btn-default' style='margin-right:30px;'>Anuluj</button>
+    <button id='saveProject' type='submit' class='btn btn-primary' disabled>Zapisz</button>
+    </div>
+	</div>
+	</div>
+
+
+
+
+	</div>
+</form>
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	var serverDate = <?php echo time() ?>;
+	var container='body';
+    var options={
+        format: 'yyyy-mm-dd',
+        container: container,
+        todayHighlight: true,
+        startDate: new Date(serverDate*1000),
+        autoclose: true,
+        language: 'pl'
+    };
+    var options_title_number={
+        format: 'mm/yy',
+        viewMode: 'months',
+        minViewMode: 'months',
+        //startDate: new Date(serverDate*1000),
+        container: container,
+        autoclose: true,
+        language: 'xy'
+    };   
+
+    $("[id$='date_of_issue']").datepicker(options).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});	
+
+	$("[id$='date_of_issue']").datepicker(options).on('show', function(ev) {
+		if ($(this).prop('disabled') == true) {
+			$(this).datepicker('hide');	
+		}
+	});
+
+
+	$("[id$='date_of_beta']").datepicker(options).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});	
+
+	$("[id$='date_of_beta']").datepicker(options).on('show', function(ev) {
+		if ($(this).prop('disabled') == true) {
+			$(this).datepicker('hide');	
+		}
+	});	
+    
+	$('#title_number').datepicker(options_title_number).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
+
+	$('input[type="radio"][name="spot_radio"]').on("change", function (e) {
+		var nVal = $(this).val();
+		if (nVal == 0) { $('#youtube_0').click(); }
+		$('[name="spot_station"]').prop('disabled', (nVal == 0));
+		$('[name="youtube"]').prop('disabled', (nVal == 0));
+		$('[name="spot"]').prop('disabled', (nVal == 0));
+		$('#spot_date_of_issue').prop('required', (nVal != 0));
+		$('#spot_date_of_beta').prop('required', (nVal != 0));
+		$('#spot_length').prop('required', (nVal != 0));
+	});
+
+	$('input[type="radio"][name="billboard_radio"]').on("change", function (e) {
+		var nVal = $(this).val();
+		if (nVal != 0) { $('#youtube_0').click(); }
+		$('[name="billboard_station"]').prop('disabled', (nVal == 0));
+		$('[name="billboard"]').prop('disabled', (nVal == 0));
+		$('#billboard_date_of_issue').prop('required', (nVal != 0));
+		$('#billboard_date_of_beta').prop('required', (nVal != 0));
+		$('#billboard_length').prop('required', (nVal != 0));		
+	});
+
+	$('input[type="radio"][name="youtube_radio"]').on("change", function (e) {
+		var nVal = $(this).val();
+		if ($('[name="spot"]').prop('disabled') == true) {
+			$('#youtube_0').click();
+			nVal = 0;	
+		}
+		if (nVal != 0) { $('#billboard_0').click(); }
+		$('[name="youtube"]').prop('disabled', (nVal == 0));
+		$('#youtube_date_of_issue').prop('required', (nVal != 0));
+		$('#youtube_date_of_beta').prop('required', (nVal != 0));
+		$('#youtube_length').prop('required', (nVal != 0));
+	});
+
+
+});
+</script>

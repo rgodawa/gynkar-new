@@ -1,0 +1,23 @@
+Options FollowSymLinks
+RewriteEngine on
+
+
+#RewriteRule ^logowanie$ login.php [L,QSA]
+RewriteRule ^menu$ menu.php [L,QSA]
+RewriteRule ^dodaj-projekt$ project_new.php [L,QSA]
+RewriteRule ^projekty-otwarte$ projects_browse.php?status=1 [L,QSA]
+RewriteRule ^projekty-zrealizowane$ projects_browse.php?status=2 [L,QSA]
+RewriteRule ^projekty-zamkniete$ projects_browse.php?status=3 [L,QSA]
+RewriteRule ^uzytkownicy$ users_browse.php [L,QSA]
+RewriteRule ^kategorie$ titles_browse.php [L,QSA]
+RewriteRule ^stacje$ stations_browse.php [L,QSA]
+RewriteRule ^faktury$ invoices_browse.php [L,QSA]
+
+
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(css|js|html|xml)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+

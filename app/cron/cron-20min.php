@@ -1,0 +1,1 @@
+<?php system('curl -f -s http://mszsystem.gynkar.pl/app/cron/project_notify_users_changes.php'); ?>

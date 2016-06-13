@@ -1,0 +1,94 @@
+<form id='projectFormInvoice' class='form-horizontal' autocomplete='off' style='display: none;'>
+	<div class="container-fluid">
+	<div class='row'>
+	<div class= "col-md-12">
+		<div  id='invoice_number_form'class='form-group' style='display:none;'>
+	    	<label class='col-md-offset-1 col-md-4 control-label'>Numer faktury</label>
+	    	<div class='col-md-4'>
+        	<div id='invoice_number' class='input-group date'>
+	        <input type='text' class='form-control' required/>
+	        <div class='input-group-addon'><i class='glyphicon glyphicon-asterisk'></i></div>
+	    	</div>
+	    	</div>
+	    </div>
+
+		<div class='form-group'>
+	    	<label class='col-md-offset-1 col-md-4 control-label date'>Data wystawienia</label>
+	    	<div class='col-md-4'>
+        	<div id='date_of_issue' class='input-group date'>
+	        <input placeholder='RRRR-MM-DD' type='text' class='form-control' required/>
+	        <div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    	</div>
+	    	</div>
+	    </div>
+
+	    <div class='form-group'>
+	    	<label class='col-md-offset-1 col-md-4 control-label date'>Data sprzedaży</label>
+	    	<div class='col-md-4'>
+        	<div id='date_of_sale' class='input-group date'>
+	        <input placeholder='RRRR-MM-DD' type='text' class='form-control' required/>
+	        <div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    	</div>
+	    	</div>
+	    </div>
+
+	    <div class='form-group'>
+	    	<label class='col-md-offset-1 col-md-4 control-label date'>Termin płatności</label>
+	    	<div class='col-md-4'>
+        	<div id='date_termin' class='input-group date'>
+	        <input placeholder='RRRR-MM-DD' type='text' class='form-control' required/>
+	        <div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    	</div>
+	    	</div>
+	    </div>
+
+    	<div class='form-group'>
+	    	<label class='col-md-offset-1 col-md-4 control-label'>Kwota netto</label>
+	    	<div class='col-md-4'>
+			<div class='input-group'>
+	        <input id='unit_price' placeholder='0.00' type='number' class='form-control' required/>
+	        <div class='input-group-addon'><i class='glyphicon glyphicon-usd'></i></div>
+	    	</div>
+	    	</div>
+	    </div>
+
+	    <div class='form-group'>
+	    	<div class='col-md-offset-1 col-md-10'>
+	    	<textarea id="description" name="description" class="form-control" rows="5"></textarea>
+	    	</div>
+		</div>
+
+	</div>
+	</div>
+		<div class='submit-footer'></div>
+	    <div class='row'>
+			<div class='col-md-12'>
+				<div class='col-md-8'></div>
+				<div class='col-md-2'>
+    				<button type='button' class='btn btn-default pull-right cancel-button' data-dismiss='modal'>Anuluj</button>
+    			</div>
+    			<div class='col-md-2'>	    	
+    				<button id='saveInvoice' class='btn btn-primary pull-right'>Zapisz</button>
+    			</div>
+			</div>
+		</div>
+
+	</div>
+</form>
+<script type='text/javascript'>
+	var serverDate = <?php echo time() ?>;
+	var container='body';
+    var options={
+        format: 'yyyy-mm-dd',
+        container: container,
+        todayHighlight: true,
+        //startDate: new Date(serverDate*1000),
+        autoclose: true,
+        language: 'pl'
+    };
+
+    $("[id^='date']").datepicker(options).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
+</script>

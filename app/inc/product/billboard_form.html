@@ -1,0 +1,131 @@
+<form id='productForm' class='form-horizontal' autocomplete='off' style='display: none;'>
+	<div class="container-fluid">
+	
+	<div class="row-fluid">
+	<div class='form-group'>
+		<div class='col-md-5'>
+			<div id='billboard_panel' class="panel panel-default products">
+  				<div class="panel-heading">Billboard sponsorski</div>
+  				<div class="panel-body">
+
+  					<div class='col-md-3'>
+            	    <label class='radio'>
+            	        <input name='billboard_radio' value='3' type='radio' checked>Nowy
+            	    </label>
+            	    <label class='radio'>
+            	        <input name='billboard_radio' value='4' type='radio'>Kolejny
+            	    </label>
+            		</div>
+
+            		<div class='col-md-9'>
+        			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data emisji</label>
+	    				<div class='col-md-7'>
+
+        				<div id='billboard_date_of_issue' name='billboard' class='input-group date'>
+	        			<input name='billboard' placeholder='RRRR-MM-DD' type='text' class='form-control' />
+	    				<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+	
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data bety</label>
+	    				<div class='col-md-7'>
+
+        				<div id='billboard_date_of_beta' name='billboard' class='input-group date'>
+	        			<input name='billboard' placeholder='RRRR-MM-DD' type='text' class='form-control' />
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+
+
+	    			<div class='form-group'>
+	    				<label class='col-md-5 control-label'>Czas trwania</label>
+	    				<div class='col-md-7'>
+
+        				<div class='input-group'>
+	        			<input id='billboard_length' name='billboard' placeholder='sekundy' type='number' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div>
+	    				</div>
+
+	    				</div>
+	    			</div>
+	    			</div>
+        			</div>
+        		<textarea id="billboard_comments" class="form-control" name='billboard' placeholder='Uwagi' rows="5"></textarea>
+        	</div>
+		</div>
+		<div class='col-md-7'>
+		<div class="panel panel-default">
+  				<div class="panel-heading text-center">Emisja w stacjach</div>
+  				<div id='billboard_stations' class="panel-body">
+  					<?php mystation_checboxes($mystations, 'billboard_station') ?>
+  				</div>
+  				<div id='billboard_stations_error' class='text-center'></div>
+  		</div>
+  		</div>
+	</div>
+	</div>
+
+	<div class='submit-footer'></div>
+	<div class="container-fluid container-button">
+	<div class='row-fluid'>
+	<div class="col-md-6 text-right"></div>
+	<div class="col-md-6 text-right">
+	<button id='cancelProject' type='button' type="reset" class='btn btn-default' style='margin-right:30px;'>Anuluj</button>
+    <button id='saveProject' type='submit' class='btn btn-primary' disabled>Zapisz</button>
+    </div>
+	</div>
+	</div>
+
+
+
+
+	</div>
+</form>
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	var serverDate = <?php echo time() ?>;
+	var container='body';
+    var options={
+        format: 'yyyy-mm-dd',
+        container: container,
+        todayHighlight: true,
+        startDate: new Date(serverDate*1000),
+        autoclose: true,
+        language: 'pl'
+    };
+    
+
+    $("[id$='date_of_issue']").datepicker(options).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});	
+
+	$("[id$='date_of_issue']").datepicker(options).on('show', function(ev) {
+		if ($(this).prop('disabled') == true) {
+			$(this).datepicker('hide');	
+		}
+	});
+
+
+	$("[id$='date_of_beta']").datepicker(options).on('changeDate', function(ev) {}).on('hide', function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});	
+
+	$("[id$='date_of_beta']").datepicker(options).on('show', function(ev) {
+		if ($(this).prop('disabled') == true) {
+			$(this).datepicker('hide');	
+		}
+	});	
+    
+
+});
+</script>

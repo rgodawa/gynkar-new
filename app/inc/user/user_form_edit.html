@@ -1,0 +1,236 @@
+<form id='userFormEdit' class='form-horizontal' autocomplete='off' style='display: none;'>
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group ">
+               <label class="control-label col-md-2">Login:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="username" name="username" type="text" required/>
+               </div>
+            </div>
+            <div class="form-group ">
+               <label class="control-label col-md-2">Imię:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="first_name" name="first_name" type="text" required/>
+               </div>
+            </div>
+            <div class="form-group ">
+               <label class="control-label col-md-2">Nazwisko:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="last_name" name="last_name" type="text" required/>
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="control-label col-md-2">Email:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="email" name="email" type="email" required/>
+               </div>
+            </div>
+            <div class="form-group new_user_password">
+               <label class="control-label col-md-2">Hasło:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="new_user_password_1" name="new_user_password" type="password" required/>
+               </div>
+            </div>
+            <div class="form-group new_user_password">
+               <label class="control-label col-md-2">Powtórz hasło:</label>
+               <div class="col-md-10">
+                  <input class="form-control" id="new_user_password_2" name="new_user_password" type="password" required/>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div id="role_id" class="form-group ">
+                     <label class="control-label col-md-4">Rola:</label>
+                     <div class="col-md-8">
+
+                        <div class="radio">
+                           <label class="radio">
+                           <input name="role" type="radio" value="4"/>
+                           Klient
+                           </label>
+                        </div>
+
+                        <div class="radio">
+                           <label class="radio">
+                           <input name="role" type="radio" value="2"/>
+                           Admin
+                           </label>
+                        </div>
+                        <?php if ($user['role_id'] == 1) : ?>
+                        <div class="radio">
+                           <label class="radio">
+                           <input name="role" type="radio" value="1"/>
+                           Full
+                           </label>
+                        </div>
+                        <?php endif; ?>
+                     </div>
+                  </div>
+                  <div class="form-group ">
+                     <div class="col-md-10 col-sm-offset-2">
+                        <div class="checkbox">
+                           <label class="checkbox">
+                           <input id="default_notice" type="checkbox"/>
+                           Powiadom o dodaniu projektu
+                           </label>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div  id='panelPassword' class="form-group ">
+                     <div class="panel panel-default">
+                        <div class="panel-body">
+                           <div class="form-group ">
+                              <label class="control-label col-md-4">Stare hasło:</label>
+                              <div class="col-md-8">
+                                 <input id="password_old" class="form-control" name="password_old" type="password"  disabled/>
+                              </div>
+                           </div>
+                           <div class="form-group ">
+                              <label class="control-label col-md-4">Nowe hasło:</label>
+                              <div class="col-md-8">
+                                 <input id="password_new_1" class="form-control" name="password_new_1" type="password"  disabled/>
+                              </div>
+                           </div>
+                           <div class="form-group ">
+                              <label class="control-label col-md-4">Powtórz nowe hasło:</label>
+                              <div class="col-md-8">
+                                 <input id="password_new_2" class="form-control" name="password_new_2" type="password"  disabled/>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="checkbox">
+                        <label class="checkbox">
+                        <input id="change_password" type="checkbox"/>
+                        Zmiana hasła
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class='submit-footer'></div>
+            <div class="container-fluid container-button">
+            <div class='row-fluid'>
+            <div class="col-md-6 text-right"></div>
+            <div class="col-md-6 text-right">
+            <button id='cancelUserEdit' type="reset" class='btn btn-default' style='margin-right:30px;'>Anuluj</button>
+            <button id='saveUserEdit' type='submit' class='btn btn-primary' disabled>Zapisz</button>
+            </div>
+            </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</form>
+<script type='text/javascript'>
+
+$('#change_password').click(function(){  
+    $("input[type='password']").prop('disabled', ($(this).is(":checked") == false));
+    if ($(this).is(":checked") == true) {
+        $('#password_old').rules("add", {required: true});
+        $('#password_new_1').rules("add", {required: true, minlength: 6});
+        $('#password_new_2').rules("add", {required: true, minlength: 6,equalTo: "#password_new_1"});
+    }
+    if ($(this).is(":checked") == false) {
+        $('#password_old').rules("remove");
+        $('#password_new_1').rules("remove");
+        $('#password_new_2').rules("remove");
+        $('#password_old').val('');
+        $('#password_new_1').val('');
+        $('#password_new_2').val('');
+        $('#password_new_1-error').text('');
+        $('#password_new_2-error').text('');
+    }
+});
+
+
+$(document).ready(function() {
+
+
+  $('#cancelUserEdit').click(function(e){ 
+    e.preventDefault();
+    validator.resetForm();
+    $('#userFormEdit').parents('.bootbox').modal('hide'); 
+  });
+
+  var validator = $('#userFormEdit').validate({
+    rules: {
+          first_name: "required",
+          last_name: "required",
+          username: {
+              required: true,
+              minlength: 4
+              },
+          email: {
+            required: true,
+            email: true
+              }
+      },
+
+    errorPlacement: function(error, element) {
+            error.insertAfter(element);
+       },
+
+    submitHandler: function(form) {
+  
+      var form_data = {
+           id: $('#userFormEdit #saveUserEdit').attr('user-id'),
+           username: $('#userFormEdit #username').val(),
+           first_name: $('#userFormEdit #first_name').val(), 
+           last_name: $('#userFormEdit #last_name').val(),
+           email: $('#userFormEdit #email').val(), 
+           role_id: $('#userFormEdit #role_id').find('input[type="radio"]:checked').val(),
+           default_notice: ($("#userFormEdit #default_notice").prop('checked') == true ? 1 : 0),
+           change_password: ($("#change_password").prop('checked') == true ? 1 : 0),
+           password_old: $('#password_old').val(),
+           password_new: $('#password_new_1').val()
+      };
+
+      console.log(form_data);
+
+      $.ajax({
+              url: 'user_update.php',
+              method: 'POST',
+              data: form_data,
+              error: function(x,e) { error_to_console(x,e) }
+             }).success(function(data) {
+                validator.resetForm();
+                var response = data[0];
+
+                switch (true) {
+                  case (response.id == 0):
+                      myDialog('Błąd zapisu do bazy', 'css/cartoons/Error.png');
+                      break;
+                  case (response.id == -1):
+                      myDialog('Hasło nie zostało zmienione', 'css/cartoons/Error.png');
+                      break;
+                  case (response.id > 0):
+                      var $button = $('#users button[data-id="' + response.id + '"]'),
+                      $tr     = $button.closest('tr'),
+                      $cells  = $tr.find('td');
+                      $cells.eq(1).text(response.username);
+                      $cells.eq(2).text(response.last_name);
+                      $cells.eq(3).text(response.first_name);
+                      $cells.eq(4).text(response.email);
+                      $cells.eq(5).text(response.role_name);
+                      myDialog('Dane użytkownika zostały zaktualizowane', 'css/cartoons/Julian.png');
+                      break;
+                }
+                                
+                $('#userFormEdit').parents('.bootbox').modal('hide');
+         });
+
+        return false;
+
+    } // end submitHandler
+
+  }); //end of validate
+
+});
+
+</script>  

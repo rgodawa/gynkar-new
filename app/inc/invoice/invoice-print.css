@@ -1,0 +1,10 @@
+@media print {
+#invoice_print tr, td {
+    padding-right: 4px;
+    padding-left: 4px;
+}
+.no-print {
+    display: none !important;
+  }
+}
+

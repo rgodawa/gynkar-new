@@ -1,0 +1,146 @@
+<?php require_once 'product_functions.php'; ?>
+<form id='productStageForm' class='form-horizontal' autocomplete='off' style='display: none;'>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="panel panel-default">
+				<div id='panelProduct' class="panel-body">
+					<div class='col-md-5'>
+					<div id='stations_tv' class="panel panel-default">
+  					<div class="panel-heading text-center">Emisja w stacjach</div>
+  					<div id='stations' class="panel-body">
+  					<?php mystation_checboxes($mystations, 'station') ?>
+  					</div>
+  					</div>
+					</div>
+
+					<div class='col-md-2'>
+						<div class="panel panel-default">
+  						<div class="panel-heading text-center">Rodzaj produktu</div>
+  						<div class="panel-body" style='padding-left: 50px;'>
+
+						<div id="spot_radio">
+						<label class='radio'>
+            	        	<input name='spot_radio' value='1' type='radio'>2D
+            	    	</label>
+            	    	<label class='radio'>
+            	        	<input name='spot_radio' value='2' type='radio'>3D
+            	    	</label>
+            	    	</div>
+
+            	    	<div id="billboard_radio">
+            	    	<label class='radio'>
+            	        	<input name='billboard_radio' value='3' type='radio'>Nowy
+            	    	</label>
+            	    	<label class='radio'>
+            	        	<input name='billboard_radio' value='4' type='radio'>Kolejny
+            	    	</label>
+            	    	</div>
+
+            	    	<div id="youtube_radio">
+            	    	<label class='radio'>
+            	        	<input name='youtube_radio' value='5' type='radio'>Making of
+            	    	</label>
+            	    	<label class='radio'>
+            	        	<input name='youtube_radio' value='6' type='radio'>Gadżet
+            	    	</label>
+            	    	<label class='radio'>
+            	        	<input name='youtube_radio' value='7' type='radio'>Recenzja
+            	    	</label>
+            	    	</div>
+
+            	    	</div>
+            	    	</div>
+
+					</div>
+
+					<div class='col-md-5'>
+
+						<div class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data emisji</label>
+	    				<div class='col-md-7'>
+
+        				<div id='product_date_of_issue' class='input-group date'>
+	        			<input placeholder='RRRR-MM-DD' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    				</div>
+
+						<div id='form_date_of_beta' class='form-group'>
+	    				<label class='col-md-5 control-label date'>Data bety</label>
+	    				<div class='col-md-7'>
+        				
+        				<div id='product_date_of_beta' class='input-group date'>
+	        			<input placeholder='RRRR-MM-DD' type='text' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></div>
+	    				</div>
+
+	    				</div>
+	    				</div>
+
+						<div id='form_product_length' class='form-group'>
+	    				<label class='col-md-5 control-label'>Czas trwania</label>
+	    				<div class='col-md-7'>
+
+        				<div class='input-group'>
+	        			<input id='product_length' placeholder='sekundy' type='number' class='form-control'/>
+	        			<div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div>
+	    				</div>
+
+	    				</div>
+	    				</div>
+
+	    				<div class='form-group'>
+	    				<label class='col-md-5 control-label'>Uwagi:</label>
+	    				<div class='col-md-7'>
+						<textarea id="product_comments" class='form-control' rows="5"></textarea>
+						</div>
+						</div>
+
+
+					</div>
+
+
+
+					<div class="container-fluid container-button">
+					<div class='row-fluid'>
+
+					<div class="col-md-6 text-right"></div>
+					<div class="col-md-6 text-right">
+					<button type='button'    class='btn btn-default cancel-button' style='margin-right:30px;'>Anuluj</button>
+    				<button id='saveProduct' class='btn btn-primary' disabled>Zapisz</button>
+    				</div>
+					</div>
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		<div class="panel panel-default">
+			<div id='panelStages' class="panel-body">
+				<div class="caption"><h4 class='text-center'>Stan etapów produktu</h4></div>
+				<?php get_stages($stages, $user); ?>
+
+				<div class="container-fluid container-button">
+				<div class='row-fluid'>
+				<div class="col-md-6 text-right"></div>
+				<div class="col-md-6 text-right">
+				<button type='button'   class='btn btn-default cancel-button' style='margin-right:30px;'>Anuluj</button>
+    			<button id='saveStages' class='btn btn-primary' disabled>Zapisz</button>
+    			</div>
+				</div>
+				</div>
+
+		</div>
+		</div>
+	</div>
+</form>
+<?php include"inc/product/product_stages_form.js"; ?> 
+
+
+
+
+
